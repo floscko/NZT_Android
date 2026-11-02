@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.22.1)
+project("nzt_exocortex")
+add_library(nzt_core SHARED native-lib.cpp)
+find_library(log-lib log)
+target_link_libraries(nzt_core ${log-lib})
