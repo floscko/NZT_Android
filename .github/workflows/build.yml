@@ -21,10 +21,13 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Build with Gradle
+      - name: Setup Gradle 8.5
         uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: assembleDebug
+          gradle-version: '8.5'
+
+      - name: Build Debug APK
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload Ready APK
         uses: actions/upload-artifact@v4
